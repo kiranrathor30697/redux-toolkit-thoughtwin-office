@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { registerApi } from '../features/apiCall/registerApi';
+import { useDispatch, useSelector } from 'react-redux';
+import { registerApi } from '../features/slice/registerSlice';
 import Header from './layouts/Header';
 
 export default function Register() {
@@ -14,20 +14,19 @@ export default function Register() {
    });
 
     const dispatch = useDispatch();
+
+    const myState = useSelector(state=>state)
+    console.log('redux store obj',myState)
     
     const handleRegister = (e) => {
-        // console.log('register')
         const  {name,value} = e.target
-        // console.log(name,value);
         setstate({
             ...state,
             [name]:value
         })
-        console.log(state)
     }
 
     const handleRegisterImg = (e) => {
-        // console.log('handleRegisterImg')
         console.log(e.target.files[0]);
         setstate({
             ...state,
@@ -51,7 +50,7 @@ export default function Register() {
                 <input type="file" accept="image/*" id='profilePic' className='form-control mb-4' onChange={(e)=>{handleRegisterImg(e)}} name="profilePic" placeholder='Select Profile' />
                 <input type="password" className='form-control text-center mb-4' onChange={(e)=>{handleRegister(e)}} name="password" placeholder='Enter Password' />
                 <input type="password" className='form-control text-center mb-4' onChange={(e)=>{handleRegister(e)}} name="confirmPassword" placeholder='Enter Confirm Password' />
-                <div className='App mt-4'>
+                <div className='App mt-4 mx-auto'>
                 <button type="submit" className='btn btn-success' onClick={(e)=>{RegisterForm(e)}}>User Register</button>
                 </div>
             </form>
