@@ -27,23 +27,23 @@ const registerSlice = createSlice({
     name:'register',
     initialState:{
         data:[],
-        status:'',
+        status:'idle',
         loading:false
     },
     reducers:{},
     extraReducers:(builder)=>{
        builder
        .addCase(registerApi.fulfilled,(state,action)=>{
-           debugger
+        //    debugger
             state.data = action.payload;
-            state.status = "empty"
+            state.status = "idle"
        })
        .addCase(registerApi.pending,(state)=>{
             state.status = 'loading'
         })
 
         .addCase(registerApi.rejected,(state)=>{
-        state.status = 'error'
+            state.status = 'error'
         })
        
     }
