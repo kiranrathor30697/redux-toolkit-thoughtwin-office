@@ -36,6 +36,7 @@ export default function Register() {
 
     const RegisterForm = (e) => {
         e.preventDefault()
+        
         dispatch(registerApi(state))
 
     }

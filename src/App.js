@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import Logout from "./pages/Logout";
 import Register from "./pages/Register";
 import 'bootstrap/dist/css/bootstrap.css';
+import Update from "./pages/Update";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Route path='/login' element={<Login />} />
       <Route path='/getuser' element={<GetUser />} />
       <Route path='/logout' element={<Logout />} />
+      <Route path='/update' element={<Update />} />
     </Routes>
    </BrowserRouter>
   );

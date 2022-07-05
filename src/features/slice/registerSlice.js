@@ -18,7 +18,7 @@ export const registerApi = createAsyncThunk(
                 'Accept': 'application/json',
             }
         })
-        console.log(res)
+        // console.log(res)
         return res.data
     }
 )
@@ -49,8 +49,8 @@ const registerSlice = createSlice({
     }
 })
 export const {rootReducer} = registerSlice.actions
-console.log(registerSlice.actions)
-console.log(registerSlice)
+// console.log(registerSlice.actions)
+// console.log(registerSlice)
 export default registerSlice.reducer
 
 
