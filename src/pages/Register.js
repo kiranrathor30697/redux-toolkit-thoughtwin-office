@@ -1,23 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { registerApi } from '../features/apiCall/registerApi';
 import Header from './layouts/Header';
 
 export default function Register() {
+    
+   const [state, setstate] = useState({
+    userName:'',
+    email:'',
+    profilePic:'',
+    password:'',
+    confirmPassword:''
+   });
 
     const dispatch = useDispatch();
     
-    const handleRegister = () => {
-        console.log('register')
+    const handleRegister = (e) => {
+        // console.log('register')
+        const  {name,value} = e.target
+        // console.log(name,value);
+        setstate({
+            ...state,
+            [name]:value
+        })
+        console.log(state)
     }
 
-    const handleRegisterImg = () => {
-        console.log('handleRegisterImg')
+    const handleRegisterImg = (e) => {
+        // console.log('handleRegisterImg')
+        console.log(e.target.files[0]);
+        setstate({
+            ...state,
+            profilePic:e.target.files[0]
+        })
     }
 
     const RegisterForm = (e) => {
         e.preventDefault()
-        dispatch(registerApi())
+        dispatch(registerApi(state))
 
     }
     return (
