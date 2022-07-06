@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { loginApi } from '../features/slice/loginSlice';
 import Header from './layouts/Header';
 
@@ -9,6 +10,8 @@ export default function Login() {
     userName:'',
     password:''
   })
+
+  const navigate = useNavigate();
 
   const dispatch = useDispatch()
 
@@ -25,6 +28,7 @@ export default function Login() {
  const LoginForm = (e) => {
     e.preventDefault();
     dispatch(loginApi(state))
+    navigate('/getuser')
   }
 
   return (

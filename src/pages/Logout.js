@@ -1,11 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-export default class Logout extends Component {
-  render() {
-    return (
-      <div>
-        Logout
-      </div>
-    );
-  }
+const Logout = () => {
+  const navigate = useNavigate();
+  return (
+    <>
+    {
+      localStorage.removeItem('rtk_token')
+    }{
+      localStorage.removeItem('rtk_userData')
+    }{
+      navigate('/login')
+    }
+    </>
+  );
 }
+export default Logout

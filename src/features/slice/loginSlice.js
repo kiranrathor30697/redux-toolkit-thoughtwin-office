@@ -12,6 +12,7 @@ export const loginApi = createAsyncThunk(
             console.log(res)
             localStorage.setItem('rtk_token',JSON.stringify(res.data.data.token))
             localStorage.setItem('rtk_userData',JSON.stringify(res.data.data))
+            
         } catch (error) {
             console.log(error)
         }
