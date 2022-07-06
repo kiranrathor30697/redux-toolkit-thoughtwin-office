@@ -9,7 +9,7 @@ export const getApi = createAsyncThunk(
                 Authorization:token
             }
         })
-        console.log(getData)
+        // console.log(getData)
         return getData.data
     }
 

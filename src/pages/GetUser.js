@@ -34,7 +34,7 @@ export default function GetUser() {
         {state.get.data.map((cv,idx,arr)=>{
           const token = JSON.parse(localStorage.getItem('rtk_token'))
           const userData = JSON.parse(localStorage.getItem('rtk_userData'))
-          console.log(token)
+          // console.log(token)
             return(
               <tr key={idx} className="ps-3 border text-center fs-4">
                 <td className="p-3 border ps-5 pe-5 text-center">{cv.userName}</td>

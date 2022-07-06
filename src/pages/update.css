@@ -1,0 +1,10 @@
+.img_box{
+    position: relative;
+  }
+  .my_img{
+    position:absolute;
+    width: 280px;
+    height: 190px;
+    top:305px !important;
+    left: 1045px;
+  }
