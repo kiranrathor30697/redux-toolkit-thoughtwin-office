@@ -41,6 +41,12 @@ export default class Header extends Component {
                   </li>
 
                   <li className="nav-item">
+                    <Link className="nav-link text-white fs-4 p-4 me-5 ms-5" to="/inc_dec ">
+                      Inc/Dec
+                    </Link>
+                  </li>
+
+                  <li className="nav-item">
                     <Link className="nav-link text-white fs-4 p-4 me-5 ms-5" to="/logout">
                       Logout
                     </Link>

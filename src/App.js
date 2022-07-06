@@ -6,6 +6,7 @@ import Logout from "./pages/Logout";
 import Register from "./pages/Register";
 import 'bootstrap/dist/css/bootstrap.css';
 import Update from "./pages/Update";
+import Inc_Dec from "./pages/Inc_Dec";
 
 
 function App() {
@@ -18,6 +19,8 @@ function App() {
       <Route path='/getuser' element={<GetUser />} />
       <Route path='/logout' element={<Logout />} />
       <Route path='/update' element={<Update />} />
+      <Route path='/inc_dec' element={<Inc_Dec />} />
+
     </Routes>
    </BrowserRouter>
   );

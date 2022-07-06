@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import getSlice from "../features/slice/getSlice";
+import  incDecSlice  from "../features/slice/incDecSlice";
 import loginSlice from "../features/slice/loginSlice";
 import registerSlice from '../features/slice/registerSlice';
 import updateSlice from "../features/slice/updateSlice";
@@ -9,6 +10,7 @@ export const store = configureStore({
         register :  registerSlice,
         login    :  loginSlice,
         get      :  getSlice,
-        update   :  updateSlice
+        update   :  updateSlice,
+        inc_dec  :  incDecSlice
     }
 })
