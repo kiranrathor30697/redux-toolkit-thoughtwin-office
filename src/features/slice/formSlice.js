@@ -2,18 +2,22 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const formSlice = createSlice({
     name:'form',
-    initialState:[],
+    initialState:{
+        formData:[],
+        updateData:[],
+        deleteData:[]
+    },
     reducers:{
         form_data : (state,action) => {
-            state.push(action.payload)
+            state.formData.push(action.payload)
         },
         delete_data : (state,action) => {
             console.log(state)
-            state.push(action.payload)
+            state.formData.push(action.payload)
         },
         updt_data : (state,action) => {
             console.log(state)
-            state.push(action.payload)
+            state.updateData.push(action.payload)
         }
     },
     

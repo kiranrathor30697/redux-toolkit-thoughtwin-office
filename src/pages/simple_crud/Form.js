@@ -10,6 +10,10 @@ export default function Form() {
         name:'',
         sname:''
     })
+    const [del,setDel] = useState({
+        name:'',
+        sname:''
+    })
 
     const dispatch = useDispatch();
 
@@ -29,7 +33,6 @@ export default function Form() {
     const submitBtn = (e) => {
         e.preventDefault();
         dispatch(form_data(data))
-        localStorage.setItem('data',JSON.stringify(state.form))
         setData({
             ...data,
             name:'',
@@ -41,13 +44,20 @@ export default function Form() {
     const deleteBtn = (e,idx) => {
         e.preventDefault();
            
-        let d = state.form 
+        let d = state.form.deleteData
+        console.log(d.idx)
       let value = d.filter((c,i,a)=>{
            return (
            a.indexOf(c) == idx
            )
        });
-       console.log(value)      
+       console.log(value) 
+       setDel({
+           name:value.name,
+           sname:value.sname
+       })
+        // dispatch(delete_data(del))    
+     
     }
 
     // const deleteBtn = (e,idx) => {
@@ -75,7 +85,8 @@ export default function Form() {
     
 
     const editBtn = (e,idx) => {
-        let d = state.form 
+        console.log(state.form[idx])
+        let d = state.form.formData
       let value = d.filter((c,i,a)=>{
            return (
            a.indexOf(c) == idx
@@ -98,11 +109,12 @@ export default function Form() {
             ...updt,
             [name]:value
         })
+        console.log(updt)
     }
 
     const updtBtn = (e) => {
         e.preventDefault();
-        dispatch(form_data(updt))
+        dispatch(updt_data(updt))
         setUpdt ({
             ...updt,
             name:'',
@@ -140,7 +152,7 @@ export default function Form() {
             </thead>
             <tbody>
                     {
-                        state.form.map((cv,idx,arr)=>{
+                        state.form.formData.map((cv,idx,arr)=>{
                             // console.log(cv);
                             return (
                                 <tr className='row' key={idx}>
