@@ -11,7 +11,7 @@ export default function Form() {
         name:'',
         sname:''
     })
-    
+
     const [del,setDel] = useState({
         id:'',
         name:'',
@@ -21,7 +21,7 @@ export default function Form() {
     const dispatch = useDispatch();
 
     const state = useSelector(state=>state)
-    console.log(state.form.formData)
+    // console.log(state.form.formData)
 
     const changeValue = (e) => {
         const {name,value} = e.target
@@ -51,12 +51,12 @@ export default function Form() {
            a.indexOf(c) == idx
            )
        });
-       console.log(value[0]) 
+       console.log(value) 
     //    setDel({
     //        ...del,
-    //        id:idx+1,
-    //        name:'',
-    //        sname:''
+    //        id:value[0].id,
+    //        name:value[0].name,
+    //        sname:value[0].sname
     //    })
     //    console.log(del)
         dispatch(delete_data(value))    

@@ -23,13 +23,15 @@ export const formSlice = createSlice({
           
         delete_data(state, action) {
             console.log(state.formData)
-            const { id, name, sname } = action.payload;
+            const { id, name, sname } = action.payload[0];
+            console.log(action.payload[0])
 
-            const data = state.formData.find((user) => user.id === id);
-            console.log(data)
-            console.log(id)
-            if (data) {
-                return state.formData.filter(user=>user.id !== id);
+            const data = state.formData.find((user) => user);
+            console.log(data.id)
+            // console.log(JSON.parse(data.id)+1)
+            // console.log(id)
+            if (JSON.parse(data.id)+1 === id) {
+                return state.formData.filter(user=>JSON.parse(user.id)+1 !== id);
             }
         }
     },
