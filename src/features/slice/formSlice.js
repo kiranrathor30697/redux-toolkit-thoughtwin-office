@@ -13,8 +13,7 @@ export const formSlice = createSlice({
         updt_data(state, action) {
             const { id, name, sname } = action.payload;
             const existingUser = state.formData.find((user) => user.id === id);
-            console.log(JSON.parse(existingUser.id)+1)
-            console.log(id)
+            
             if (existingUser) {
               existingUser.name = name;
               existingUser.sname = sname;
@@ -25,14 +24,8 @@ export const formSlice = createSlice({
             console.log(state.formData)
             const { id, name, sname } = action.payload[0];
             console.log(action.payload[0])
-
-            const data = state.formData.find((user) => user);
-            console.log(data.id)
-            // console.log(JSON.parse(data.id)+1)
-            // console.log(id)
-            if (JSON.parse(data.id)+1 === id) {
-                return state.formData.filter(user=>JSON.parse(user.id)+1 !== id);
-            }
+            console.log(id)
+            state.formData.splice(0,1)
         }
     },
     
